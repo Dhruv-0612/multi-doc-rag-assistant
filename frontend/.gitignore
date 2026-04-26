@@ -21,7 +21,6 @@ __pycache__/
 backend/data/
 backend/uploads/
 *.index
-*.json
 
 # ----------------------------
 # ⚠️ Node / Frontend
