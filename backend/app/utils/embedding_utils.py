@@ -1,34 +1,24 @@
-from sentence_transformers import SentenceTransformer
-import torch
+import os
+from groq import Groq
 
-# 🔥 Force CPU (important for Render free plan)
-device = "cpu"
-
-# 🔥 Load lightweight model once globally
-model = SentenceTransformer("all-MiniLM-L6-v2", device=device)
-
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 def generate_embeddings(chunks: list[str]):
-    """
-    Generate embeddings for a list of text chunks.
-    Returns: List[List[float]]
-    """
-    embeddings = model.encode(
-        chunks,
-        batch_size=8,              # reduce memory spikes
-        show_progress_bar=False,
-        convert_to_numpy=True
-    )
+    embeddings = []
+
+    for chunk in chunks:
+        response = client.embeddings.create(
+            model="text-embedding-3-small",
+            input=chunk
+        )
+        embeddings.append(response.data[0].embedding)
+
     return embeddings
 
 
 def generate_query_embedding(query: str):
-    """
-    Generate embedding for a single query.
-    Returns: List[List[float]]
-    """
-    embedding = model.encode(
-        [query],
-        convert_to_numpy=True
+    response = client.embeddings.create(
+        model="text-embedding-3-small",
+        input=query
     )
-    return embedding
+    return [response.data[0].embedding]
