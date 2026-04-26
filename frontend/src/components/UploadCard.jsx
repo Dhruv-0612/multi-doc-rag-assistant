@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "https://multi-doc-rag-assistant.onrender.com";
 
 function shortenFileName(name, maxLength = 30) {
   if (!name) return "";

@@ -1,6 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import UploadCard from "./components/UploadCard";
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  "https://multi-doc-rag-assistant.onrender.com";
+
 function shortenFileName(name, maxLength = 34) {
   if (!name) return "";
   if (name.length <= maxLength) return name;
@@ -293,7 +297,7 @@ function App() {
     setIsTyping(true);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/chat", {
+      const response = await fetch(`${API_BASE_URL}/api/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
