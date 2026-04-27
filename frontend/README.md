@@ -11,10 +11,10 @@ Built from scratch using modern AI architecture, vector search, and a premium UI
 ## 🌐 Live Demo
 
 🔗 Frontend:  
-(Add after deployment)
+https://multi-doc-rag-assistant.vercel.app/
 
 🔗 Backend API:  
-(Add after deployment)
+(https://multi-doc-rag-assistant.onrender.com/)
 
 ---
 
@@ -62,7 +62,7 @@ Architecture: RAG Pipeline (Embedding → Retrieval → LLM Generation)
 
 Clone repository:
 
-git clone https://github.com/your-username/multi-doc-rag-assistant.git  
+git clone https://github.com/Dhruv-0612/multi-doc-rag-assistant.git  
 cd multi-doc-rag-assistant
 
 Run frontend:
@@ -127,3 +127,5 @@ User uploads PDFs → text extracted → split into chunks → embeddings genera
 ## 👨‍💻 Author
 
 Dhruv Hiteshbhai Mistry
+📍 India  
+🔗 https://github.com/Dhruv-0612
