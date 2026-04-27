@@ -1,24 +1,22 @@
-import os
-from groq import Groq
+from sentence_transformers import SentenceTransformer
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
+
 
 def generate_embeddings(chunks: list[str]):
-    embeddings = []
-
-    for chunk in chunks:
-        response = client.embeddings.create(
-            model="text-embedding-3-small",
-            input=chunk
-        )
-        embeddings.append(response.data[0].embedding)
-
+    embeddings = model.encode(
+        chunks,
+        batch_size=4,
+        show_progress_bar=False,
+        convert_to_numpy=True,
+    )
     return embeddings
 
 
 def generate_query_embedding(query: str):
-    response = client.embeddings.create(
-        model="text-embedding-3-small",
-        input=query
+    embedding = model.encode(
+        [query],
+        show_progress_bar=False,
+        convert_to_numpy=True,
     )
-    return [response.data[0].embedding]
+    return embedding
