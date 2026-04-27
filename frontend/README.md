@@ -60,43 +60,73 @@ Architecture: RAG Pipeline (Embedding → Retrieval → LLM Generation)
 
 ## ⚙️ Installation & Setup
 
-Clone repository:
+### 1. Clone the repository
 
-git clone https://github.com/Dhruv-0612/multi-doc-rag-assistant.git  
+```bash
+git clone https://github.com/Dhruv-0612/multi-doc-rag-assistant.git
 cd multi-doc-rag-assistant
-
-Run frontend:
-
-cd frontend  
-npm install  
-npm run dev
-
-Frontend: http://localhost:5173
-
-Run backend:
-
-cd backend  
-python -m venv venv  
-venv\Scripts\activate  
-pip install -r requirements.txt
-
-Create backend/.env and add:
-
-GROQ_API_KEY=your_api_key  
-GROQ_MODEL=your_model
-
-DATA_DIR=data  
-UPLOAD_DIR=uploads  
-FAISS_INDEX_PATH=data/faiss_index.index  
-METADATA_PATH=data/chunk_metadata.json
-
-Run backend:
-
-uvicorn app.main:app --reload
-
-Backend: http://127.0.0.1:8000
+```
 
 ---
+
+### 2. Run frontend:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend will run at:
+
+```
+http://localhost:5173
+```
+
+---
+
+### 3. Backend Setup
+
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+---
+
+### 4. Create backend/.env and add:
+
+Create a file:
+
+```
+backend/.env
+```
+
+Add your Groq API key & Model:
+
+```
+GROQ_API_KEY=your_api_key
+GROQ_MODEL=your_model
+
+DATA_DIR=data
+UPLOAD_DIR=uploads
+FAISS_INDEX_PATH=data/faiss_index.index
+METADATA_PATH=data/chunk_metadata.json
+```
+
+### 5. Run Backend Server
+
+```bash
+uvicorn main:app --reload
+```
+
+Backend will run at:
+
+```
+http://127.0.0.1:8000
+```
 
 ## 🧠 How It Works
 
