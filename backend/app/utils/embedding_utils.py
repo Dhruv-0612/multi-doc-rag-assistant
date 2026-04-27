@@ -1,22 +1,24 @@
-from sentence_transformers import SentenceTransformer
+from fastembed import TextEmbedding
 
-model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
+_model = None
+
+
+def get_model():
+    global _model
+
+    if _model is None:
+        _model = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
+
+    return _model
 
 
 def generate_embeddings(chunks: list[str]):
-    embeddings = model.encode(
-        chunks,
-        batch_size=4,
-        show_progress_bar=False,
-        convert_to_numpy=True,
-    )
+    model = get_model()
+    embeddings = list(model.embed(chunks))
     return embeddings
 
 
 def generate_query_embedding(query: str):
-    embedding = model.encode(
-        [query],
-        show_progress_bar=False,
-        convert_to_numpy=True,
-    )
+    model = get_model()
+    embedding = list(model.embed([query]))
     return embedding
