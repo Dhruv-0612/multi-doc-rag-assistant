@@ -14,7 +14,10 @@ Built from scratch using modern AI architecture, vector search, and a premium UI
 https://multi-doc-rag-assistant.vercel.app/
 
 🔗 Backend API:  
-(https://multi-doc-rag-assistant.onrender.com/)
+https://multi-doc-rag-assistant.onrender.com/
+
+> ⚠️ Note: The backend is hosted on Render (free tier) and may take 30–60 seconds to wake up after inactivity.  
+> Uploading documents and generating responses may feel slow on the first request. Please wait and try again if needed.
 
 ---
 
@@ -36,7 +39,7 @@ https://multi-doc-rag-assistant.vercel.app/
 ## 🛠️ Tech Stack
 
 Frontend: React (Vite), Tailwind CSS, React Dropzone, Axios  
-Backend: Backend: FastAPI, FAISS, HuggingFace Inference API, Groq API, PyMuPDF
+Backend: FastAPI, FAISS, HuggingFace Inference API, Groq API, PyMuPDF
 
 Architecture: RAG Pipeline (Embedding → Retrieval → LLM Generation)
 
@@ -48,6 +51,12 @@ Architecture: RAG Pipeline (Embedding → Retrieval → LLM Generation)
 - Backend is deployed on Render
 - Embeddings are generated using HuggingFace Inference API (to avoid heavy model hosting)
 - This architecture ensures the app runs efficiently on free-tier cloud services
+
+---
+
+## 🧩 Architecture
+
+Frontend (Vercel) → Backend (Render) → HuggingFace (Embeddings) → FAISS → Groq (LLM)
 
 ---
 
@@ -139,6 +148,8 @@ Backend will run at:
 http://127.0.0.1:8000
 ```
 
+---
+
 ## 🧠 How It Works
 
 User uploads PDFs → text extracted → split into chunks → embeddings generated → stored in FAISS → query converted to embedding → relevant chunks retrieved → sent to LLM → answer generated with sources.
@@ -167,6 +178,6 @@ User uploads PDFs → text extracted → split into chunks → embeddings genera
 
 ## 👨‍💻 Author
 
-Dhruv Hiteshbhai Mistry
+**Dhruv Hiteshbhai Mistry**
 📍 India  
-🔗 https://github.com/Dhruv-0612
+🔗 GitHub: https://github.com/Dhruv-0612
