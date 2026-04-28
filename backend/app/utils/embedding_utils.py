@@ -6,8 +6,8 @@ import requests
 HF_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
 
 API_URL = (
-    "https://api-inference.huggingface.co/pipeline/feature-extraction/"
-    "sentence-transformers/all-MiniLM-L6-v2"
+    "https://router.huggingface.co/hf-inference/models/"
+    "sentence-transformers/all-MiniLM-L6-v2/pipeline/feature-extraction"
 )
 
 headers = {
