@@ -36,9 +36,18 @@ https://multi-doc-rag-assistant.vercel.app/
 ## 🛠️ Tech Stack
 
 Frontend: React (Vite), Tailwind CSS, React Dropzone, Axios  
-Backend: FastAPI, FAISS, Sentence Transformers, Groq API, PyMuPDF
+Backend: Backend: FastAPI, FAISS, HuggingFace Inference API, Groq API, PyMuPDF
 
 Architecture: RAG Pipeline (Embedding → Retrieval → LLM Generation)
+
+---
+
+## ⚡ Deployment Notes
+
+- Frontend is deployed on Vercel
+- Backend is deployed on Render
+- Embeddings are generated using HuggingFace Inference API (to avoid heavy model hosting)
+- This architecture ensures the app runs efficiently on free-tier cloud services
 
 ---
 
@@ -110,6 +119,8 @@ Add your Groq API key & Model:
 GROQ_API_KEY=your_api_key
 GROQ_MODEL=your_model
 
+HUGGINGFACE_API_KEY=your_hf_api_key
+
 DATA_DIR=data
 UPLOAD_DIR=uploads
 FAISS_INDEX_PATH=data/faiss_index.index
@@ -119,7 +130,7 @@ METADATA_PATH=data/chunk_metadata.json
 ### 5. Run Backend Server
 
 ```bash
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 ```
 
 Backend will run at:
