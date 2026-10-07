@@ -178,6 +178,6 @@ User uploads PDFs → text extracted → split into chunks → embeddings genera
 
 ## 👨‍💻 Author
 
-**Dhruv Hiteshbhai Mistry**
+**DHRUVKUMAR MISTRI**
 📍 India  
 🔗 GitHub: https://github.com/Dhruv-0612
